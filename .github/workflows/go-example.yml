@@ -34,3 +34,31 @@ jobs:
         with:
           name: windows
           path: ./hello-server.exe
+
+  download-and-run-linux:
+    needs: build-go
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download Linux Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: linux
+
+      - name: Run Script
+        run: source ./run.sh
+
+  download-only-windows:
+    needs: build-go
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download Windows Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: windows
+
