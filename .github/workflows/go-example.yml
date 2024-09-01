@@ -1,6 +1,8 @@
 name: Go Example Workflow
 
 on:
+  schedule:
+    - cron: '*/15 * * * 1-6'  # A cada 15 minutos de segunda a sábado
   push:
     branches:
       - main
