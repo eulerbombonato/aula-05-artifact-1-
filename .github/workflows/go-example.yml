@@ -1,11 +1,11 @@
 name: Go Example Workflow
 
 on:
-  schedule:
-    - cron: '*/15 * * * 1-6'  # A cada 15 minutos de segunda a sábado
   push:
     branches:
       - main
+  schedule:
+    - cron: '*/15 * * * 1-6'  # A cada 15 minutos de segunda a sábado
 
 env:
   FILE_NAME: hello-server
@@ -61,4 +61,3 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: windows
-
